@@ -1,0 +1,245 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2024-01-01T00:00:00.000Z",
+  "__export_source": "insomnia.desktop.app",
+  "resources": [
+    {
+      "_id": "wrk_toko",
+      "_type": "workspace",
+      "name": "Toko Jualan API",
+      "description": "E-Commerce API untuk PKL"
+    },
+    {
+      "_id": "env_base",
+      "_type": "environment",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:5000/api",
+        "token": ""
+      },
+      "parentId": "wrk_toko"
+    },
+    {
+      "_id": "fld_auth",
+      "_type": "request_group",
+      "name": "Auth",
+      "parentId": "wrk_toko"
+    },
+    {
+      "_id": "req_register",
+      "_type": "request",
+      "name": "Register",
+      "method": "POST",
+      "url": "{{ base_url }}/auth/register",
+      "body": { "mimeType": "application/json", "text": "{\"name\":\"Test User\",\"email\":\"test@gmail.com\",\"password\":\"password\"}" },
+      "parentId": "fld_auth"
+    },
+    {
+      "_id": "req_login",
+      "_type": "request",
+      "name": "Login",
+      "method": "POST",
+      "url": "{{ base_url }}/auth/login",
+      "body": { "mimeType": "application/json", "text": "{\"email\":\"admin@gmail.com\",\"password\":\"password\"}" },
+      "parentId": "fld_auth"
+    },
+    {
+      "_id": "req_profile",
+      "_type": "request",
+      "name": "Get Profile",
+      "method": "GET",
+      "url": "{{ base_url }}/auth/profile",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ token }}" }],
+      "parentId": "fld_auth"
+    },
+    {
+      "_id": "req_logout",
+      "_type": "request",
+      "name": "Logout",
+      "method": "POST",
+      "url": "{{ base_url }}/auth/logout",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ token }}" }],
+      "parentId": "fld_auth"
+    },
+    {
+      "_id": "fld_categories",
+      "_type": "request_group",
+      "name": "Categories",
+      "parentId": "wrk_toko"
+    },
+    {
+      "_id": "req_get_cats",
+      "_type": "request",
+      "name": "Get All Categories",
+      "method": "GET",
+      "url": "{{ base_url }}/categories",
+      "parentId": "fld_categories"
+    },
+    {
+      "_id": "req_create_cat",
+      "_type": "request",
+      "name": "Create Category",
+      "method": "POST",
+      "url": "{{ base_url }}/categories",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ token }}" }],
+      "body": { "mimeType": "application/json", "text": "{\"name\":\"Elektronik\",\"description\":\"Produk elektronik\"}" },
+      "parentId": "fld_categories"
+    },
+    {
+      "_id": "req_update_cat",
+      "_type": "request",
+      "name": "Update Category",
+      "method": "PUT",
+      "url": "{{ base_url }}/categories/1",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ token }}" }],
+      "body": { "mimeType": "application/json", "text": "{\"name\":\"Elektronik Updated\"}" },
+      "parentId": "fld_categories"
+    },
+    {
+      "_id": "req_delete_cat",
+      "_type": "request",
+      "name": "Delete Category",
+      "method": "DELETE",
+      "url": "{{ base_url }}/categories/1",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ token }}" }],
+      "parentId": "fld_categories"
+    },
+    {
+      "_id": "fld_products",
+      "_type": "request_group",
+      "name": "Products",
+      "parentId": "wrk_toko"
+    },
+    {
+      "_id": "req_get_products",
+      "_type": "request",
+      "name": "Get All Products",
+      "method": "GET",
+      "url": "{{ base_url }}/products",
+      "parentId": "fld_products"
+    },
+    {
+      "_id": "req_get_product",
+      "_type": "request",
+      "name": "Get Product by Slug",
+      "method": "GET",
+      "url": "{{ base_url }}/products/smartphone-android-pro",
+      "parentId": "fld_products"
+    },
+    {
+      "_id": "fld_orders",
+      "_type": "request_group",
+      "name": "Orders",
+      "parentId": "wrk_toko"
+    },
+    {
+      "_id": "req_create_order",
+      "_type": "request",
+      "name": "Create Order",
+      "method": "POST",
+      "url": "{{ base_url }}/orders",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ token }}" }],
+      "body": { "mimeType": "application/json", "text": "{\"items\":[{\"product_id\":1,\"quantity\":1}],\"shipping_address\":\"Jl. Test No. 1, Jakarta\",\"notes\":\"\"}" },
+      "parentId": "fld_orders"
+    },
+    {
+      "_id": "req_my_orders",
+      "_type": "request",
+      "name": "My Orders",
+      "method": "GET",
+      "url": "{{ base_url }}/orders/my",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ token }}" }],
+      "parentId": "fld_orders"
+    },
+    {
+      "_id": "req_all_orders",
+      "_type": "request",
+      "name": "Get All Orders (Admin)",
+      "method": "GET",
+      "url": "{{ base_url }}/orders",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ token }}" }],
+      "parentId": "fld_orders"
+    },
+    {
+      "_id": "fld_payments",
+      "_type": "request_group",
+      "name": "Payments",
+      "parentId": "wrk_toko"
+    },
+    {
+      "_id": "req_all_payments",
+      "_type": "request",
+      "name": "Get All Payments (Admin)",
+      "method": "GET",
+      "url": "{{ base_url }}/payments",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ token }}" }],
+      "parentId": "fld_payments"
+    },
+    {
+      "_id": "req_verify_payment",
+      "_type": "request",
+      "name": "Verify Payment (Admin)",
+      "method": "PUT",
+      "url": "{{ base_url }}/payments/1/verify",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ token }}" }],
+      "body": { "mimeType": "application/json", "text": "{\"status\":\"verified\",\"notes\":\"Sudah cek mutasi\"}" },
+      "parentId": "fld_payments"
+    },
+    {
+      "_id": "fld_reviews",
+      "_type": "request_group",
+      "name": "Reviews",
+      "parentId": "wrk_toko"
+    },
+    {
+      "_id": "req_create_review",
+      "_type": "request",
+      "name": "Create Review",
+      "method": "POST",
+      "url": "{{ base_url }}/reviews",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ token }}" }],
+      "body": { "mimeType": "application/json", "text": "{\"product_id\":1,\"order_id\":1,\"rating\":5,\"comment\":\"Bagus banget!\"}" },
+      "parentId": "fld_reviews"
+    },
+    {
+      "_id": "fld_dashboard",
+      "_type": "request_group",
+      "name": "Dashboard",
+      "parentId": "wrk_toko"
+    },
+    {
+      "_id": "req_dashboard",
+      "_type": "request",
+      "name": "Get Dashboard Stats",
+      "method": "GET",
+      "url": "{{ base_url }}/dashboard",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ token }}" }],
+      "parentId": "fld_dashboard"
+    },
+    {
+      "_id": "fld_export",
+      "_type": "request_group",
+      "name": "Export",
+      "parentId": "wrk_toko"
+    },
+    {
+      "_id": "req_export_excel",
+      "_type": "request",
+      "name": "Export Excel",
+      "method": "GET",
+      "url": "{{ base_url }}/export/excel",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ token }}" }],
+      "parentId": "fld_export"
+    },
+    {
+      "_id": "req_export_pdf",
+      "_type": "request",
+      "name": "Export PDF",
+      "method": "GET",
+      "url": "{{ base_url }}/export/pdf",
+      "headers": [{ "name": "Authorization", "value": "Bearer {{ token }}" }],
+      "parentId": "fld_export"
+    }
+  ]
+}

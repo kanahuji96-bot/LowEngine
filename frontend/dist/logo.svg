@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background -->
+  <rect width="200" height="200" fill="#000000"/>
+  
+  <!-- Outer ring -->
+  <circle cx="100" cy="85" r="72" fill="none" stroke="url(#goldGrad)" stroke-width="2.5" opacity="0.6"/>
+  <circle cx="100" cy="85" r="64" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.5"/>
+  <circle cx="100" cy="85" r="56" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.4"/>
+  
+  <!-- Dragon body spiral -->
+  <path d="M100 30 C130 35, 155 55, 158 80 C161 105, 145 125, 125 130 C105 135, 85 125, 75 110 C65 95, 68 75, 80 62 C88 53, 95 48, 100 45" 
+        fill="none" stroke="url(#goldGrad)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M100 38 C125 42, 148 60, 150 83 C152 106, 138 122, 120 127 C102 132, 84 122, 76 108 C68 94, 71 76, 82 64" 
+        fill="none" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+  
+  <!-- Dragon head -->
+  <ellipse cx="118" cy="58" rx="18" ry="14" fill="url(#goldGrad)" opacity="0.95"/>
+  
+  <!-- Dragon snout -->
+  <path d="M128 55 L145 50 L140 58 L145 62 L128 60 Z" fill="url(#goldGrad)"/>
+  
+  <!-- Dragon eye -->
+  <ellipse cx="122" cy="54" rx="4" ry="3.5" fill="#000"/>
+  <ellipse cx="123" cy="53" rx="1.5" ry="1.5" fill="#D4AF37"/>
+  
+  <!-- Dragon horn -->
+  <path d="M118 46 L112 32 L122 43 Z" fill="url(#goldGrad)"/>
+  <path d="M124 44 L122 30 L130 42 Z" fill="url(#goldGrad)" opacity="0.8"/>
+  
+  <!-- Dragon mane/whiskers -->
+  <path d="M110 52 C100 42, 88 38, 80 42" fill="none" stroke="url(#goldGrad)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M108 58 C95 52, 82 52, 75 58" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+  
+  <!-- Swirl lines -->
+  <path d="M100 30 C60 35, 35 65, 40 95 C45 125, 70 145, 100 145 C130 145, 155 125, 158 95" 
+        fill="none" stroke="url(#goldGrad)" stroke-width="1.5" opacity="0.4" stroke-dasharray="4,3"/>
+
+  <!-- Text LOWENGINE -->
+  <text x="100" y="175" font-family="Arial Black, Arial" font-weight="900" font-size="20" 
+        fill="url(#goldGradText)" text-anchor="middle" letter-spacing="3">LOWENGINE</text>
+
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#B8860B"/>
+      <stop offset="40%" style="stop-color:#D4AF37"/>
+      <stop offset="70%" style="stop-color:#F0D060"/>
+      <stop offset="100%" style="stop-color:#B8860B"/>
+    </linearGradient>
+    <linearGradient id="goldGradText" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#B8860B"/>
+      <stop offset="50%" style="stop-color:#F0D060"/>
+      <stop offset="100%" style="stop-color:#B8860B"/>
+    </linearGradient>
+  </defs>
+</svg>
